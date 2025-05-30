@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">W</string>
+
+    <!-- Título -->
+    <string name="titulo_registro">Registro de Atención</string>
+
+    <!-- Labels -->
+    <string name="label_fecha">Fecha de atención</string>
+    <string name="label_tipo">Tipo de atención</string>
+    <string name="label_resultado">Resultado</string>
+    <string name="label_observaciones">Observaciones</string>
+
+    <!-- Hints -->
+    <string name="hint_fecha">Selecciona una fecha</string>
+    <string name="hint_observaciones">Escribe aquí tus observaciones...</string>
+
+    <!-- Botones -->
+    <string name="btn_guardar">Guardar Atención</string>
 </resources>

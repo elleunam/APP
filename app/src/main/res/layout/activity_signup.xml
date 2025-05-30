@@ -1,66 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    android:background="#F8F9FA"
+    android:padding="32dp">
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <LinearLayout
+        <!-- Logo o Imagen -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="40dp"
+            android:contentDescription="Logo" />
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Cuenta"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#212529"
+            android:layout_marginTop="24dp" />
+
+        <!-- Subtítulo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completa los datos para registrarte"
+            android:textSize="14sp"
+            android:textColor="#6C757D"
+            android:layout_marginTop="8dp" />
+
+        <!-- Campo Email -->
+        <EditText
+            android:id="@+id/emailInput"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#0D6EFD"
+            android:drawableStart="@android:drawable/ic_dialog_email"
+            android:drawablePadding="10dp"
+            android:padding="12dp" />
 
-            <EditText
-                android:id="@+id/txtnombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nombre"
-                android:inputType="text" />
+        <!-- Campo Contraseña -->
+        <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#0D6EFD"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:drawablePadding="10dp"
+            android:padding="12dp" />
 
-            <EditText
-                android:id="@+id/txtapellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Apellido"
-                android:inputType="text" />
+        <!-- Campo Confirmar Contraseña -->
+        <EditText
+            android:id="@+id/confirmPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirmar contraseña"
+            android:inputType="textPassword"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#0D6EFD"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:drawablePadding="10dp"
+            android:padding="12dp" />
 
-            <EditText
-                android:id="@+id/txtemailN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Correo"
-                android:inputType="textEmailAddress" />
+        <!-- Botón de Registro -->
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:layout_marginTop="24dp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0D6EFD"
+            android:padding="12dp" />
 
-            <EditText
-                android:id="@+id/txtpassN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Contraseña"
-                android:inputType="textPassword" />
-
-            <Button
-                android:id="@+id/btnsignup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign Up"
-                app:cornerRadius="5dp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Ir al login -->
+        <TextView
+            android:id="@+id/loginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Ya tienes una cuenta? Inicia sesión"
+            android:textColor="#0D6EFD"
+            android:layout_marginTop="24dp"
+            android:textSize="14sp" />
+    </LinearLayout>
+</ScrollView>
