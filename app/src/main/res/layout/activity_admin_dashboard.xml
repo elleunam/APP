@@ -5,21 +5,19 @@
     android:padding="24dp">
 
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- Bienvenida -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¡Hola, Ejecutivo!"
+            android:text="Panel del Administrador"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#212529"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="24dp"
+            android:textColor="#212529" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,9 +27,9 @@
             android:textColor="#6C757D"
             android:layout_marginBottom="32dp" />
 
-        <!-- Registrar Atención -->
+        <!-- Botón Ver Usuarios -->
         <LinearLayout
-            android:id="@+id/btnRegistrarAtencion"
+            android:id="@+id/btnVerUsuarios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -45,13 +43,13 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_edit"
-                android:contentDescription="Registrar" />
+                android:src="@android:drawable/ic_menu_info_details"
+                android:contentDescription="Usuarios" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registrar Atención"
+                android:text="Ver Usuarios"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="16dp"
@@ -59,9 +57,9 @@
                 android:textColor="#0D6EFD" />
         </LinearLayout>
 
-        <!-- Ver Historial -->
+        <!-- Botón Ver Historial -->
         <LinearLayout
-            android:id="@+id/btnHistorial"
+            android:id="@+id/btnVerHistorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -89,29 +87,29 @@
                 android:textColor="#0D6EFD" />
         </LinearLayout>
 
-        <!-- Mi Perfil -->
+        <!-- Botón Asignar Clientes -->
         <LinearLayout
-            android:id="@+id/btnPerfil"
+            android:id="@+id/btnAsignarClientes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="#FFFFFF"
             android:elevation="4dp"
             android:padding="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:clickable="true"
             android:focusable="true">
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_myplaces"
-                android:contentDescription="Perfil" />
+                android:src="@android:drawable/ic_menu_add"
+                android:contentDescription="Asignar Clientes" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mi Perfil"
+                android:text="Asignar Clientes"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="16dp"
@@ -119,61 +117,17 @@
                 android:textColor="#0D6EFD" />
         </LinearLayout>
 
-        <!-- Ver Mis Clientes con badge -->
-        <LinearLayout
-            android:id="@+id/btnVerMisClientes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#FFFFFF"
-            android:elevation="4dp"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_menu_agenda"
-                android:contentDescription="Clientes" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ver Mis Clientes"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginStart="16dp"
-                android:layout_gravity="center_vertical"
-                android:textColor="#0D6EFD" />
-
-            <TextView
-                android:id="@+id/badgeClientes"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/circle_red"
-                android:text="0"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="12sp"
-                android:layout_gravity="center_vertical"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <!-- Cerrar Sesión -->
+        <!-- Botón Cerrar Sesión -->
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnCerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cerrar Sesión"
+            android:textAllCaps="false"
+            android:layout_marginTop="12dp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#DC3545"
-            android:layout_marginTop="32dp"
-            android:textAllCaps="false"
-            android:padding="12dp" />
-
+            android:padding="14dp"
+            android:elevation="4dp" />
     </LinearLayout>
 </ScrollView>

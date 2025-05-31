@@ -4,23 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F0F2F5"
-    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:padding="24dp"
     tools:context=".HistorialActivity">
 
+    <!-- CABECERA -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Historial de Atenciones"
-        android:textSize="22sp"
+        android:text="📋 Historial de Atenciones"
+        android:textSize="20sp"
+        android:textColor="#212529"
         android:textStyle="bold"
-        android:textColor="#0D6EFD"
         android:fontFamily="sans-serif-medium"
-        android:layout_marginBottom="12dp" />
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:background="@android:color/transparent" />
 
+    <!-- LÍNEA DIVISORA -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CED4DA"
+        android:layout_marginBottom="16dp" />
+
+    <!-- LISTA DE ATENCIONES -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerHistorial"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false" />
+
 </LinearLayout>

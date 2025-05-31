@@ -75,6 +75,8 @@ public class RegistroAtencionActivity extends AppCompatActivity {
     }
 
     private void guardarAtencion() {
+        DataStore.cargarClientes(this); // 🔥 CRÍTICO para cargar listaClientes desde JSON
+
         String fecha = fechaInput.getText().toString();
         String tipo = spinnerTipoAtencion.getSelectedItem().toString();
         String resultado = spinnerResultado.getSelectedItem().toString();
@@ -85,9 +87,36 @@ public class RegistroAtencionActivity extends AppCompatActivity {
             return;
         }
 
-        // Aquí en el futuro: guardar en Firestore o SQLite
+        // 🔹 Recuperar el nombre del cliente enviado por Intent
+        String nombreCliente = getIntent().getStringExtra("cliente");
+        if (nombreCliente == null) nombreCliente = "Sin cliente específico";
 
-        Toast.makeText(this, "Atención registrada correctamente (simulado)", Toast.LENGTH_LONG).show();
-        finish(); // Cierra la actividad y regresa al menú
+        // 🔸 Crear y guardar atención
+        Atencion nueva = new Atencion(
+                nombreCliente,
+                tipo,
+                resultado,
+                observaciones,
+                DataStore.usuarioActual,
+                fecha
+        );
+
+        DataStore.listaAtenciones.add(nueva);
+        DataStore.guardarAtenciones(this);
+
+        // 🔴 ACTUALIZAR CLIENTE COMO ATENDIDO
+        for (Cliente c : DataStore.listaClientes) {
+            if (c.nombreCliente.equals(nombreCliente)) {
+                c.atendido = true;
+                c.atendidoPor = DataStore.usuarioActual;
+                c.fechaAtencion = fecha;
+                break;
+            }
+        }
+
+        DataStore.guardarClientes(this); // ✅ Esto guarda la lista actualizada al JSON
+
+        Toast.makeText(this, "Atención registrada y cliente actualizado", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

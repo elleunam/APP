@@ -12,7 +12,7 @@ public class HistorialActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private HistorialAdapter adapter;
-    private List<Atencion> listaAtenciones;
+    private List<Atencion> listaFiltrada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +22,19 @@ public class HistorialActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerHistorial);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Datos simulados de ejemplo
-        listaAtenciones = new ArrayList<>();
-        listaAtenciones.add(new Atencion("24/05/2025", "Presencial", "Interesado", "Cliente quiere propuesta."));
-        listaAtenciones.add(new Atencion("25/05/2025", "Telefónica", "No interesado", "Sin presupuesto."));
-        listaAtenciones.add(new Atencion("26/05/2025", "Presencial", "Seguimiento", "Volver a contactar la próxima semana."));
+        // ✅ Cargar la lista real desde el archivo JSON
+        DataStore.cargarAtenciones(this);
 
-        adapter = new HistorialAdapter(listaAtenciones);
+        listaFiltrada = new ArrayList<>();
+        String usuarioLogueado = DataStore.usuarioActual;
+
+        for (Atencion at : DataStore.listaAtenciones) {
+            if (at.getUsuario().equals(usuarioLogueado)) {
+                listaFiltrada.add(at);
+            }
+        }
+
+        adapter = new HistorialAdapter(listaFiltrada);
         recyclerView.setAdapter(adapter);
     }
 }

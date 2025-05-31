@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -11,23 +12,54 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.W"
         tools:targetApi="31">
-
-        <!-- Actividades secundarias -->
-        <activity android:name=".PerfilActivity" android:exported="false" />
-        <activity android:name=".HistorialActivity" android:exported="false" />
-        <activity android:name=".RegistroAtencionActivity" android:exported="false" />
-        <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".SignupActivity" android:exported="true" />
-
-        <!-- Login será la primera pantalla -->
+        <activity
+            android:name=".AdminHistorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemClienteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MisClientesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClienteAsignadoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AsignarClientesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerUsuariosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="false" /> <!-- Actividades secundarias -->
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroAtencionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" /> <!-- Login será la primera pantalla -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

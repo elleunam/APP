@@ -3,17 +3,23 @@
 
     <!-- Título -->
     <string name="titulo_registro">Registro de Atención</string>
+    <string name="titulo_asignar_cliente">Asignar Cliente a Ejecutivo</string>
 
     <!-- Labels -->
-    <string name="label_fecha">Fecha de atención</string>
-    <string name="label_tipo">Tipo de atención</string>
-    <string name="label_resultado">Resultado</string>
-    <string name="label_observaciones">Observaciones</string>
+    <string name="label_fecha">📅 %1$s</string>
+    <string name="label_tipo">Tipo: %1$s</string>
+    <string name="label_resultado">Resultado: %1$s</string>
+    <string name="label_observacion">Obs: %1$s</string>
+    <string name="selecciona_usuario">Selecciona un ejecutivo</string>
+    <string name="nombre_cliente">Nombre del Cliente</string>
+
 
     <!-- Hints -->
     <string name="hint_fecha">Selecciona una fecha</string>
     <string name="hint_observaciones">Escribe aquí tus observaciones...</string>
+    <string name="hint_nombre_cliente">Ej. Juan Pérez</string>
 
     <!-- Botones -->
     <string name="btn_guardar">Guardar Atención</string>
+    <string name="asignar_cliente">Asignar Cliente</string>
 </resources>
