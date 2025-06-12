@@ -156,7 +156,7 @@ public class DataStore {
         return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
     }
 
-    // 🔽 Obtener lista actualizada de usuarios
+    // 🔽 Obtener lista atualizada de usuarios
     public static List<Usuario> getListaUsuarios(Context context) {
         cargarUsuarios(context);
         return listaUsuarios;
