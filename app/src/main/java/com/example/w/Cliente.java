@@ -1,15 +1,15 @@
 package com.example.w;
 
 public class Cliente {
-    public String nombreCliente;
-    public String asignadoA;
-    public boolean vistoPorUsuario;
+    private String nombreCliente;
+    private String asignadoA;
+    private boolean vistoPorUsuario;
+    private boolean atendido;
+    private String atendidoPor;
+    private String fechaAtencion;
+    private String fechaAsignacion;
 
-    // NUEVOS CAMPOS
-    public boolean atendido;              // si fue atendido
-    public String atendidoPor;            // usuario que atendió
-    public String fechaAtencion;          // fecha de la atención
-
+    // Constructor
     public Cliente(String nombreCliente, String asignadoA) {
         this.nombreCliente = nombreCliente;
         this.asignadoA = asignadoA;
@@ -17,9 +17,22 @@ public class Cliente {
         this.atendido = false;
         this.atendidoPor = "";
         this.fechaAtencion = "";
+        this.fechaAsignacion = "";
     }
 
-    // Getters opcionales si usas en adaptador
+    // Getters
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public String getAsignadoA() {
+        return asignadoA;
+    }
+
+    public boolean isVistoPorUsuario() {
+        return vistoPorUsuario;
+    }
+
     public boolean isAtendido() {
         return atendido;
     }
@@ -32,7 +45,36 @@ public class Cliente {
         return fechaAtencion;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public String getFechaAsignacion() {
+        return fechaAsignacion != null ? fechaAsignacion : "(sin fecha)";
+    }
+
+    // Setters
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public void setAsignadoA(String asignadoA) {
+        this.asignadoA = asignadoA;
+    }
+
+    public void setVistoPorUsuario(boolean vistoPorUsuario) {
+        this.vistoPorUsuario = vistoPorUsuario;
+    }
+
+    public void setAtendido(boolean atendido) {
+        this.atendido = atendido;
+    }
+
+    public void setAtendidoPor(String atendidoPor) {
+        this.atendidoPor = atendidoPor;
+    }
+
+    public void setFechaAtencion(String fechaAtencion) {
+        this.fechaAtencion = fechaAtencion;
+    }
+
+    public void setFechaAsignacion(String fechaAsignacion) {
+        this.fechaAsignacion = fechaAsignacion;
     }
 }

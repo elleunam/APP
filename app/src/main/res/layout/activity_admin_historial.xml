@@ -1,21 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
 
+    <!-- 🔹 Filtro por Fecha (editable con DatePicker si deseas) -->
+    <EditText
+        android:id="@+id/etFiltroFecha"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="📅 Filtrar por fecha"
+        android:background="@drawable/bg_input"
+        android:padding="12dp"
+        android:textColor="#212121"
+        android:textSize="14sp"
+        android:inputType="none"
+        android:focusable="false"
+        android:drawablePadding="8dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 🔹 Filtro por Estado -->
+    <Spinner
+        android:id="@+id/spFiltroEstado"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_input"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 🔹 Filtro por Supervisor -->
+    <Spinner
+        android:id="@+id/spFiltroSupervisor"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_input"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- 🔹 Título -->
     <TextView
-        android:text="Historial de Clientes Asignados"
-        android:textSize="20sp"
+        android:text="📋 Historial de Clientes Asignados"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#000000"
+        android:textColor="#0D47A1"
+        android:layout_marginBottom="8dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnLimpiarFiltros"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Borrar filtros"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
         android:layout_marginBottom="12dp"/>
 
+    <!-- 🔹 RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAdminHistorial"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>

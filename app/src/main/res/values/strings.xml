@@ -14,6 +14,13 @@
     <string name="nombre_cliente">Nombre del Cliente</string>
 
 
+    <string-array name="roles_array">
+        <item>administrador</item>
+        <item>supervisor</item>
+        <item>ejecutivo</item>
+    </string-array>
+
+
     <!-- Hints -->
     <string name="hint_fecha">Selecciona una fecha</string>
     <string name="hint_observaciones">Escribe aquí tus observaciones...</string>

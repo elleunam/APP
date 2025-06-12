@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class AsignarClientesActivity extends Activity {
 
@@ -26,8 +29,8 @@ public class AsignarClientesActivity extends Activity {
         // Llenar el spinner solo con ejecutivos
         List<String> usuariosEjecutivos = new ArrayList<>();
         for (Usuario u : DataStore.listaUsuarios) {
-            if ("ejecutivo".equals(u.rol)) {
-                usuariosEjecutivos.add(u.username);
+            if ("ejecutivo".equalsIgnoreCase(u.getRol())) {
+                usuariosEjecutivos.add(u.getUsername());
             }
         }
 
@@ -44,21 +47,28 @@ public class AsignarClientesActivity extends Activity {
                 return;
             }
 
-            // 🔍 Verificar si ya existe un cliente con el mismo nombre
+            // Verificar si ya existe un cliente con el mismo nombre
             for (Cliente c : DataStore.listaClientes) {
-                if (c.nombreCliente.equalsIgnoreCase(nombreCliente)) {
+                if (c.getNombreCliente().equalsIgnoreCase(nombreCliente)) {
                     Toast.makeText(this, "Este cliente ya ha sido asignado", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
 
-            // ✅ Crear y guardar cliente
+            // Crear y guardar cliente con fecha de asignación
             Cliente nuevo = new Cliente(nombreCliente, usuarioSeleccionado);
+            nuevo.setFechaAsignacion(obtenerFechaActual());
             DataStore.listaClientes.add(nuevo);
             DataStore.guardarClientes(getApplicationContext());
 
             Toast.makeText(this, "Cliente asignado correctamente", Toast.LENGTH_SHORT).show();
             etNombreCliente.setText("");
         });
+    }
+
+    // Método para obtener la fecha actual formateada
+    private String obtenerFechaActual() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+        return sdf.format(new Date());
     }
 }

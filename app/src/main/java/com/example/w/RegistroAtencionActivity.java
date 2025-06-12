@@ -106,12 +106,13 @@ public class RegistroAtencionActivity extends AppCompatActivity {
 
         // 🔴 ACTUALIZAR CLIENTE COMO ATENDIDO
         for (Cliente c : DataStore.listaClientes) {
-            if (c.nombreCliente.equals(nombreCliente)) {
-                c.atendido = true;
-                c.atendidoPor = DataStore.usuarioActual;
-                c.fechaAtencion = fecha;
+            if (c.getNombreCliente().equals(nombreCliente)) {
+                c.setAtendido(true);
+                c.setAtendidoPor(DataStore.usuarioActual);
+                c.setFechaAtencion(fecha);
                 break;
             }
+
         }
 
         DataStore.guardarClientes(this); // ✅ Esto guarda la lista actualizada al JSON

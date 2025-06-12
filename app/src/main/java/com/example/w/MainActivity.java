@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         TextView badgeClientes = findViewById(R.id.badgeClientes);
         int nuevos = 0;
         for (Cliente c : DataStore.listaClientes) {
-            if (c.asignadoA.equals(DataStore.usuarioActual) && !c.vistoPorUsuario) {
+            if (c.getAsignadoA().equals(DataStore.usuarioActual) && !c.isVistoPorUsuario()) {
+
                 nuevos++;
             }
         }
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         TextView badgeClientes = findViewById(R.id.badgeClientes);
         int nuevos = 0;
         for (Cliente c : DataStore.listaClientes) {
-            if (c.asignadoA.equals(DataStore.usuarioActual) && !c.vistoPorUsuario) {
+            if (c.getAsignadoA().equals(DataStore.usuarioActual) && !c.isVistoPorUsuario()) {
                 nuevos++;
             }
         }

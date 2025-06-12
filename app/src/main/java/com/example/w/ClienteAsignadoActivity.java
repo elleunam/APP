@@ -138,10 +138,10 @@ public class ClienteAsignadoActivity extends Activity {
             DataStore.cargarClientes(this); // Muy importante antes de modificar
 
             for (Cliente c : DataStore.listaClientes) {
-                if (c.nombreCliente.equals(nombreCliente)) {
-                    c.atendido = true;
-                    c.atendidoPor = usuario;
-                    c.fechaAtencion = fechaAtencion;
+                if (c.getNombreCliente().equals(nombreCliente)) {
+                    c.setAtendido(true);
+                    c.setAtendidoPor(DataStore.usuarioActual);
+                    c.setFechaAtencion(obtenerFechaActual());
                     break;
                 }
             }
@@ -151,5 +151,13 @@ public class ClienteAsignadoActivity extends Activity {
 
             finish();
         });
+
+
+    }
+
+
+    private String obtenerFechaActual() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+        return sdf.format(new Date());
     }
 }

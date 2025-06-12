@@ -42,7 +42,7 @@
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo electrónico"
+            android:hint="Usuario"
             android:inputType="textEmailAddress"
             android:layout_marginTop="32dp"
             android:backgroundTint="#0D6EFD"
@@ -75,14 +75,6 @@
             android:backgroundTint="#0D6EFD"
             android:padding="12dp" />
 
-        <!-- Texto de registro -->
-        <TextView
-            android:id="@+id/registroRedirect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="¿No tienes una cuenta? Regístrate"
-            android:textColor="#0D6EFD"
-            android:layout_marginTop="24dp"
-            android:textSize="14sp" />
+
     </LinearLayout>
 </ScrollView>

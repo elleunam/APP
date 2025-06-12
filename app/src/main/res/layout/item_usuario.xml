@@ -33,5 +33,45 @@
             android:text="Rol: ejecutivo"
             android:textColor="#212529"
             android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/tvSupervisorUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supervisor: -"
+            android:textColor="#495057"
+            android:layout_marginTop="4dp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tvCorreoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo: jtorres@demo.com"
+            android:textColor="#495057"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnEditarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editar" />
+
+            <Button
+                android:id="@+id/btnEliminarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:layout_marginStart="8dp"
+                android:textColor="#FF0000" />
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

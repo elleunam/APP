@@ -26,9 +26,9 @@ public class MisClientesActivity extends Activity {
         // Filtrar clientes asignados y marcar como vistos
         List<Cliente> asignados = new ArrayList<>();
         for (Cliente c : DataStore.listaClientes) {
-            if (c.asignadoA.equals(DataStore.usuarioActual)) {
+            if (c.getAsignadoA().equals(DataStore.usuarioActual)) {
                 asignados.add(c);
-                c.vistoPorUsuario = true;
+                c.setVistoPorUsuario(true);
             }
         }
 

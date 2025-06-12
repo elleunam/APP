@@ -5,7 +5,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DataStore {
@@ -18,6 +20,7 @@ public class DataStore {
 
     private static final String ARCHIVO_CLIENTES = "clientes.json";
     private static final String ARCHIVO_ATENCIONES = "atenciones.json";
+    private static final String ARCHIVO_USUARIOS = "usuarios.json";
 
     static {
         // Usuarios de prueba
@@ -25,7 +28,7 @@ public class DataStore {
         listaUsuarios.add(new Usuario("jtorres", "123456", "ejecutivo"));
     }
 
-    // 🔽 Guardar listaClientes a archivo JSON
+    // Guardar clientes
     public static void guardarClientes(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(ARCHIVO_CLIENTES, Context.MODE_PRIVATE);
@@ -37,7 +40,7 @@ public class DataStore {
         }
     }
 
-    // 🔼 Cargar listaClientes desde archivo JSON
+    // Cargar clientes
     public static void cargarClientes(Context context) {
         try {
             File archivo = new File(context.getFilesDir(), ARCHIVO_CLIENTES);
@@ -46,14 +49,11 @@ public class DataStore {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
                 StringBuilder builder = new StringBuilder();
                 String line;
-
                 while ((line = reader.readLine()) != null) {
                     builder.append(line);
                 }
-
                 reader.close();
                 fis.close();
-
                 listaClientes = new Gson().fromJson(
                         builder.toString(),
                         new TypeToken<List<Cliente>>() {}.getType()
@@ -64,6 +64,7 @@ public class DataStore {
         }
     }
 
+    // Guardar atenciones
     public static void guardarAtenciones(Context context) {
         try {
             FileOutputStream fos = context.openFileOutput(ARCHIVO_ATENCIONES, Context.MODE_PRIVATE);
@@ -75,6 +76,7 @@ public class DataStore {
         }
     }
 
+    // Cargar atenciones
     public static void cargarAtenciones(Context context) {
         try {
             File archivo = new File(context.getFilesDir(), ARCHIVO_ATENCIONES);
@@ -96,5 +98,73 @@ public class DataStore {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // Guardar usuarios
+    public static void guardarUsuarios(Context context) {
+        try {
+            FileOutputStream fos = context.openFileOutput(ARCHIVO_USUARIOS, Context.MODE_PRIVATE);
+            String json = new Gson().toJson(listaUsuarios);
+            fos.write(json.getBytes());
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Cargar usuarios
+    public static void cargarUsuarios(Context context) {
+        try {
+            File archivo = new File(context.getFilesDir(), ARCHIVO_USUARIOS);
+            if (archivo.exists()) {
+                FileInputStream fis = context.openFileInput(ARCHIVO_USUARIOS);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+                StringBuilder builder = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    builder.append(line);
+                }
+                reader.close();
+                fis.close();
+                listaUsuarios = new Gson().fromJson(
+                        builder.toString(),
+                        new TypeToken<List<Usuario>>() {}.getType()
+                );
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ✅ Asignar cliente a un ejecutivo (usando getters/setters)
+    public static void asignarCliente(Context context, String nombreCliente, String ejecutivo) {
+        for (Cliente c : listaClientes) {
+            if (c.getNombreCliente().equals(nombreCliente)) {
+                c.setAsignadoA(ejecutivo);
+                c.setFechaAsignacion(obtenerFechaHoraActual());
+                c.setAtendido(false);
+                c.setAtendidoPor("");
+                c.setFechaAtencion("");
+                break;
+            }
+        }
+        guardarClientes(context);
+    }
+
+    // ✅ Obtener fecha y hora actual
+    public static String obtenerFechaHoraActual() {
+        return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
+    }
+
+    // 🔽 Obtener lista actualizada de usuarios
+    public static List<Usuario> getListaUsuarios(Context context) {
+        cargarUsuarios(context);
+        return listaUsuarios;
+    }
+
+    // 🔽 Obtener lista actualizada de clientes
+    public static List<Cliente> getListaClientes(Context context) {
+        cargarClientes(context);
+        return listaClientes;
     }
 }

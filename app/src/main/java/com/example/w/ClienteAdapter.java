@@ -31,15 +31,17 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Cliente cliente = lista.get(position);
-        holder.tvNombre.setText(cliente.nombreCliente);
-        holder.tvAsignado.setText("Asignado a: " + cliente.asignadoA);
+
+        // Usar getters en lugar de acceso directo
+        holder.tvNombre.setText(cliente.getNombreCliente());
+        holder.tvAsignado.setText("Asignado a: " + cliente.getAsignadoA());
 
         // Si el usuario actual es quien lo tiene asignado, puede atenderlo
         holder.itemView.setOnClickListener(v -> {
-            if (cliente.asignadoA.equals(DataStore.usuarioActual)) {
+            if (cliente.getAsignadoA().equals(DataStore.usuarioActual)) {
                 Intent intent = new Intent(context, ClienteAsignadoActivity.class);
-                intent.putExtra("nombreCliente", cliente.nombreCliente);
-                intent.putExtra("fechaAsignacion", "Asignado previamente");
+                intent.putExtra("nombreCliente", cliente.getNombreCliente());
+                intent.putExtra("fechaAsignacion", "Asignado previamente"); // Puedes agregar más datos si deseas
                 context.startActivity(intent);
             }
         });
